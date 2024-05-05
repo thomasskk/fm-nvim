@@ -65,7 +65,7 @@ function M.on_enter()
 	local exist = window_exist()
 
 	if not exist then
-		M.Nnn(fn.expand("%:p"))
+		M.Nnn()
 	end
 
 	return true
@@ -165,7 +165,7 @@ local function createWin(cmd, suffix)
 end
 
 function M.Nnn(dir)
-	dir = dir or "."
+	dir = dir or fn.expand("%:p")
 	createWin(config.cmds.nnn_cmd .. " -p /tmp/fm-nvim " .. dir, "<CR>")
 end
 
