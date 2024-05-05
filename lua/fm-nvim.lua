@@ -166,7 +166,9 @@ end
 
 function M.Nnn(dir)
 	dir = dir or fn.expand("%:p")
-	createWin(config.cmds.nnn_cmd .. " -p /tmp/fm-nvim " .. dir, "<CR>")
+	vim.schedule(function()
+		createWin(config.cmds.nnn_cmd .. " -p /tmp/fm-nvim " .. dir, "<CR>")
+	end)
 end
 
 return M
